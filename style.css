@@ -4,31 +4,120 @@ body {
   box-sizing: border-box;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
+/* ++++++++++++++++++++++++ Nav section +++++++++++++++++++++++++++++++++++++*/
+
+#navbar{
+  display: flex;         /* logo aur menu horizontal me */
+  align-items: center;   /* vertical center */
   justify-content: space-between;
-  align-items: center;
-  background-color: #004c97;
-  padding: 15px 20px;
-  position: sticky;
-  top: 0;
+  background-color: rgb(40,98,204);
+  padding: 30px 20px;
+  gap: 50px;
+  flex-wrap: wrap;  /* important! */  
 }
 
-.navbar .logo {
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
+#menu {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 30px;
+  margin: 0;      /* default margin remove */
+  padding: 0;     /* default padding remove */
 }
 
-.navbar .menu a {
+
+#menu li {
+ list-style-type:none;
+}
+
+#menu li a {
   color: white;
   text-decoration: none;
-  margin-left: 20px;
+  font-weight: bold; 
+  padding: 10px 20px; 
+}
+       
+#menu li a:hover {
+  background-color: rgb(86, 120, 221);
+  border-radius: 5px;
+}
+
+
+/* ++++++++++++++++++++++++++ 
+Banner section +++++++++++++++++++++++++++++*/
+#banner {
+  background-image: url("images/new.jpg");
+  background-size:cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  
+}
+
+
+/* Optional overlay for better text visibility */
+#banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(rgba(0,0,50,0.4), rgba(0,0,0,0.6));
+}
+
+.banner-text {
+  position: relative; /* so text stays above overlay */
+  z-index: 1;
+  animation: floatIn 3s ease-out;
+}
+@keyframes floatIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  50% { opacity: 0.6; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+.banner-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.banner-text p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
   font-weight: bold;
 }
 
-.navbar .menu a:hover {
-  text-decoration: underline;
+.btn {
+  background-color: white;
+  color: rgb(40,98,204);
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: rgb(40,98,204);
+  color: white;
+  transform: scale(1.05);
+}
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  animation: bounce 1.5s infinite;
 }
 
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+}
